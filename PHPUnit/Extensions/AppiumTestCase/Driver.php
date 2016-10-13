@@ -33,7 +33,7 @@ class PHPUnit_Extensions_AppiumTestCase_Driver
     public function startSession(array $desiredCapabilities,
                                  PHPUnit_Extensions_Selenium2TestCase_URL $browserUrl)
     {
-        $sessionCreation = $this->seleniumServerUrl->descend("/wd/hub/session");
+        $sessionCreation = $this->seleniumServerUrl->descend("/session");
         $response = $this->curl('POST', $sessionCreation, array(
             'desiredCapabilities' => $desiredCapabilities
         ));
