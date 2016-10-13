@@ -68,6 +68,15 @@ class PHPUnit_Extensions_AppiumTestCase_Element
         $this->driver->curl('POST', $url, $data);
     }
 
+    public function sendKeys($value)
+    {
+        $data = array(
+            'value' => array($value)
+        );
+        $url = $this->getSessionUrl()->descend('element')->descend($this->getId())->descend('value');
+        $this->driver->curl('POST', $url, $data);
+    }
+
     public function by($strategy, $value)
     {
         $el = $this->element($this->using($strategy)->value($value));
